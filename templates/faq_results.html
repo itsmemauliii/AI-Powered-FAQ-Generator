@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated FAQs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generated FAQs for {{ business_name }}</h1>
+        
+        {% if faqs %}
+            <ul>
+                {% for faq in faqs %}
+                    <li>
+                        <strong>{{ faq.question }}</strong><br>
+                        <p>{{ faq.answer }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No FAQs generated yet.</p>
+        {% endif %}
+        
+        <a href="{{ url_for('index') }}">Generate More FAQs</a>
+    </div>
+</body>
+</html>
