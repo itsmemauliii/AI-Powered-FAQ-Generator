@@ -129,8 +129,8 @@ AI-Powered-FAQ-Generator/
 ├── venv/                     # Virtual environment
 ├── requirements.txt          # List of dependencies
 └── README.md                 # Project documentation
----
----
+
+```
 
 ## **Contributing**
 
