@@ -1,19 +1,22 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-import datetime
+from flask import Flask, request, jsonify
+import openai
+import os
 
-Base = declarative_base()
-engine = create_engine('sqlite:///faqs.db')
-Session = sessionmaker(bind=engine)
-session = Session()
+app = Flask(__name__)
 
-class FAQ(Base):
-    __tablename__ = 'FAQs'
-    id = Column(Integer, primary_key=True)
-    topic = Column(String, nullable=False)
-    question = Column(Text, nullable=False)
-    answer = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+# Load API Key
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-Base.metadata.create_all(engine)
+@app.route('/generate_faq', methods=['POST'])
+def generate_faq():
+    data = request.json
+    topic = data.get('topic', 'General')
+    prompt = f"Generate FAQs for the topic: {topic}. Be professional."
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return jsonify(response['choices'][0]['message']['content'])
+
+if __name__ == '__main__':
+    app.run(debug=True)
