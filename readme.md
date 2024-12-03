@@ -130,6 +130,7 @@ AI-Powered-FAQ-Generator/
 ├── requirements.txt          # List of dependencies
 └── README.md                 # Project documentation
 ---
+---
 
 ## **Contributing**
 
