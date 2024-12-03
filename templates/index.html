@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered FAQ Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered FAQ Generator</h1>
+        <form action="{{ url_for('generate_faq') }}" method="POST">
+            <label for="business_name">Business Name:</label>
+            <input type="text" id="business_name" name="business_name" required>
+            
+            <label for="description">Business Description:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="category">Select FAQ Category:</label>
+            <select id="category" name="category" required>
+                <option value="billing">Billing</option>
+                <option value="shipping">Shipping</option>
+                <option value="technical_support">Technical Support</option>
+                <option value="general_inquiries">General Inquiries</option>
+            </select>
+            
+            <button type="submit">Generate FAQs</button>
+        </form>
+    </div>
+</body>
+</html>
