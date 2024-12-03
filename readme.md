@@ -117,24 +117,18 @@ Before getting started, ensure you have the following installed:
 ## **Project Structure**
 
 ```plaintext
-ai-powered-faq-generator/
-│
-├── backend/
-│   ├── app.py                # Flask API for FAQ generation
-│   ├── models.py             # Database models
-│   ├── .env                  # API keys and environment settings
-│   └── requirements.txt      # Python dependencies
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # React components
-│   │   ├── App.js            # Main React app
-│   │   └── index.js          # React entry point
-│   └── package.json          # Frontend dependencies
-│
+AI-Powered-FAQ-Generator/
+├── app.py                    # Main Flask application file
+├── models.py                 # Contains the database models
+├── templates/                # Folder for HTML templates
+│   ├── index.html            # Main input form
+│   ├── faq_results.html      # Displays generated FAQs
+│   └── faq_log.html          # FAQ generation logs
+├── static/                   # Folder for static files (CSS, JS, images)
+│   ├── styles.css            # CSS styles for the pages
+├── venv/                     # Virtual environment
+├── requirements.txt          # List of dependencies
 └── README.md                 # Project documentation
-```
-
 ---
 
 ## **Contributing**
